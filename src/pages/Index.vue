@@ -10,8 +10,14 @@
 
 <script>
 import { defineComponent } from 'vue'
+import { socket } from 'boot/socketio'
 
 export default defineComponent({
-  name: 'PageIndex'
+  name: 'PageIndex',
+  mounted () {
+    socket.on('connectclient', (data) => {
+      console.log(data)
+    })
+  }
 })
 </script>
